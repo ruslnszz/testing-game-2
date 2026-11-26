@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1d1230">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<title>English Adventure – Degree of Comparison</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main id="app">
+
+  <section id="screen-menu" class="screen active">
+    <div class="cloud" style="top:12%;left:8%"></div>
+    <div class="cloud slow" style="top:26%;left:62%"></div>
+    <div class="cloud" style="top:8%;left:78%;scale:.7"></div>
+    <div class="menu-box">
+      <h1 class="title">English<br>Adventure</h1>
+      <p class="subtitle">Degree of Comparison</p>
+      <nav class="buttons">
+        <button class="btn" id="btn-play">Play</button>
+        <button class="btn" id="btn-howto">How to Play</button>
+        <button class="btn" id="btn-settings">Settings</button>
+      </nav>
+    </div>
+    <div class="ground-strip"></div>
+  </section>
+
+  <section id="screen-howto" class="screen">
+    <div class="panel">
+      <h2>How to Play</h2>
+      <table class="keys">
+        <tr><td><kbd>A</kbd> <kbd>←</kbd></td><td>Move left</td></tr>
+        <tr><td><kbd>D</kbd> <kbd>→</kbd></td><td>Move right</td></tr>
+        <tr><td><kbd>Space</kbd> <kbd>W</kbd> <kbd>↑</kbd></td><td>Jump</td></tr>
+        <tr><td><kbd>Esc</kbd> <kbd>P</kbd></td><td>Pause</td></tr>
+      </table>
+      <p>Run to the flag at the end of the map. Jump over pipes and pits, and collect coins on the way. Falling into a pit sends you back to the start.</p>
+      <button class="btn back">Back</button>
+    </div>
+  </section>
+
+  <section id="screen-settings" class="screen">
+    <div class="panel">
+      <h2>Settings</h2>
+      <label class="row"><span>Sound effects</span><button class="btn toggle" id="set-sound">On</button></label>
+      <label class="row"><span>Volume</span><input id="set-volume" type="range" min="0" max="100" value="65"></label>
+      <label class="row"><span>Audio</span><button class="btn toggle" id="set-mute">Mute</button></label>
+      <button class="btn back">Back</button>
+    </div>
+  </section>
+
+  <section id="screen-game" class="screen">
+    <div id="stage">
+      <canvas id="game" width="800" height="480"></canvas>
+      <div id="hud"><span>Coins <b id="hud-coins">0</b>/<b id="hud-total">0</b></span><span>Level <b id="hud-level">1</b> <small id="hud-levelname"></small></span><span>Lives <b id="hud-lives">3</b> | Score <b id="hud-score">0</b> | Best <b id="hud-best">0</b></span></div>
+      <div id="overlay" class="hidden">
+        <h2 id="ov-title"></h2><p id="ov-text"></p>
+        <button class="btn" id="ov-main"></button>
+        <button class="btn" id="ov-menu">Main Menu</button>
+      </div>
+      <div id="quiz-modal" class="hidden"></div>
+      <button id="btn-fs" class="fs-btn" aria-label="Fullscreen" title="Fullscreen">⛶</button>
+      <div id="touch-controls" aria-label="Mobile controls"><button class="touch-btn" data-key="left" aria-label="Left">◀</button><button class="touch-btn" data-key="right" aria-label="Right">▶</button><button class="touch-btn jump-btn" data-key="jump" aria-label="Jump">▲</button></div>
+    </div>
+  </section>
+
+</main>
+<div id="rotate-hint" aria-live="polite"><div class="phone"></div><p>Putar HP kamu ke mode<br>LANDSCAPE</p><small>Rotate your phone to landscape</small></div>
+<script src="js/sound.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/map.js"></script>
+<script src="js/player.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/display.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
